@@ -1,0 +1,8 @@
+node_modules
+coverage
+.nyc_output
+.DS_Store
+coverage.lcov
+/build
+/.svelte-kit
+/package
