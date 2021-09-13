@@ -20,6 +20,33 @@ Get started quickly using [degit](https://github.com/Rich-Harris/degit).
 degit jerrythomas/charts/examples/graphs my-app
 ```
 
-## Caveats
+## Features
 
-When using different pattern and color combinations for patterns on a single page, be sure to provide a different prefix for the `brew` function. This ensures that each pattern is uniquely identifiable by the browser.
+- [x] Fill patterns
+- [x] Symbols
+- [x] Colors
+- [ ] Themes
+
+### Plots
+
+- [ ] Box
+- [ ] Violin
+- [ ] Scatter
+- [ ] Line
+- [ ] Histogram
+- [ ] StackedBar
+
+All plots are vertical for now.
+
+### Chart
+
+- [x] Axis
+- [x] Grid
+- [ ] Margins
+- [ ] Legend
+- [ ] Composable
+- [ ] Combine multiple plots
+- [ ] Animation
+- [ ] Time lapse
+  - [ ] Sliding window
+  - [ ] Rolling window

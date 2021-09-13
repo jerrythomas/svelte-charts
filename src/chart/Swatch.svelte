@@ -78,39 +78,8 @@
     {#if label}
       <title>A swatch with label {label}</title>
     {/if}
-    <PatternDefs patterns={items} />
 
     {#each data as { cx, cy, r, type }, i}
-      <!-- {#if type === 'rect'}
-        <rect
-          x={cx - r}
-          y={cy - r}
-          rx={4}
-          ry={4}
-          width={size}
-          height={size}
-          fill={fill(items[i + start])}
-          stroke={stroke(items[i + start])}
-          stroke-width={strokeWidth(i + start)}
-          on:click={click(i + start)}
-          on:mouseover={forwardEvent('mouseover', i + start)}
-          on:mouseleave={forwardEvent('mouseleave', i + start)}
-          on:focus={forwardEvent('focus', i + start)}
-        />
-      {:else if type === 'circle'}
-        <circle
-          {cx}
-          {cy}
-          {r}
-          fill={fill(items[i + start])}
-          stroke={stroke(items[i + start])}
-          stroke-width={strokeWidth(i + start)}
-          on:click={click(i + start)}
-          on:mouseover={forwardEvent('mouseover', i + start)}
-          on:mouseleave={forwardEvent('mouseleave', i + start)}
-          on:focus={forwardEvent('focus', i + start)}
-        />
-      {:else} -->
       <Symbol
         x={cx}
         y={cy}
@@ -124,7 +93,7 @@
         on:mouseleave={forwardEvent('mouseleave', i + start)}
         on:focus={forwardEvent('focus', i + start)}
       />
-      <!-- {/if} -->
     {/each}
+    <PatternDefs patterns={items} />
   </svg>
 </div>

@@ -1,8 +1,32 @@
 import { scaleBand, scaleLinear } from 'd3-scale'
+import { min, max } from 'd3-array'
 
+/**
+ * Generates a unique id from current timestamp
+ *
+ * @returns timestamp based unique id
+ */
+export function uniqueId() {
+  return Date.now().toString(36)
+}
+
+/**
+ * Capitalizes the first letter of input string
+ *
+ * @param {string} str
+ * @returns
+ */
 export function initCap(str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
+
+/**
+ * Converts an input number into it's hexadecimal representation, with optional left padded zeroes based on the `size`
+ *
+ * @param {number} value
+ * @param {number} size
+ * @returns
+ */
 export function toHexString(value, size = 2) {
   return value.toString(16).padStart(size, '0')
 }
@@ -51,17 +75,16 @@ export function swatch(count, size, pad = 0, columns, rows) {
  */
 export function getScale(values, bounds, buffer = 0) {
   if (values.some(isNaN)) {
-    return scaleBand()
-      .range(bounds)
-      .domain(values)
-      .paddingInner(1)
-      .paddingOuter(0.5)
+    return scaleBand().range(bounds).domain(values).padding(0.6)
   } else {
-    const min = Math.min(...values)
-    const max = Math.max(...values)
-    const margin = (max - min) * buffer
+    // ensure that all numeric values are converted to numbers so that d3 min/max provide correct results
+    values = values.map((n) => +n)
+
+    const minValue = min(values)
+    const maxValue = max(values)
+    const margin = (maxValue - minValue) * buffer
     return scaleLinear()
-      .domain([min - margin, max + margin])
+      .domain([minValue - margin, maxValue + margin])
       .range(bounds)
   }
 }

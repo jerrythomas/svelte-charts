@@ -1,6 +1,8 @@
 <script>
   import { Chart } from '@jerrythomas/svelte-charts'
   import { data } from '$lib/data'
+  import ChartControls from '$lib/components/ChartControls.svelte'
+
   let theme = {
     grid: {
       thickness: 0.2,
@@ -37,7 +39,13 @@
   }
 </script>
 
-<h1>Plots</h1>
-<div class="flex flex-col items-center p-4">
-  <Chart {theme} {params} {fields} {data} />
+<div class="flex flex-row h-full">
+  <content class="flex-grow p-8">
+    <h1>Plots</h1>
+    <div class="flex flex-col items-center p-4">
+      <Chart {theme} {params} {fields} {data} />
+    </div>
+  </content>
+
+  <ChartControls {data} />
 </div>

@@ -1,4 +1,4 @@
-import { toHexString } from './utils'
+import { toHexString, uniqueId } from './utils'
 import { ColorBrewer } from './color'
 import { clamp } from 'yootils'
 
@@ -154,8 +154,9 @@ export class PatternBrewer {
     return this
   }
 
-  brew(prefix = 0) {
-    const hexPrefix = toHexString(prefix)
+  brew() {
+    // const hexPrefix = toHexString(prefix)
+    const hexPrefix = uniqueId()
 
     let patterns = []
 

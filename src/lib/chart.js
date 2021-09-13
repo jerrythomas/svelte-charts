@@ -1,6 +1,9 @@
 import { nest } from 'd3-collection'
 import { quantile, ascending } from 'd3-array'
 import { getScale } from './utils'
+import { scaleLinear } from 'd3-scale'
+import { max, histogram } from 'd3-array'
+import { area, curveCatmullRom } from 'd3-shape'
 
 /**
  * axis, theme, params, fields
@@ -11,7 +14,7 @@ export class ChartBrewer {
     this.x = x
     this.y = y
     this.fill = x
-    this.axis = {}
+    this.axis = null
     this.stats = {}
     // this.yOffset = 20
     this.padding = 10
@@ -39,8 +42,7 @@ export class ChartBrewer {
     }
 
     let xOffset =
-      Math.max(...this.scaleValues.y.map((value) => value.toString().length)) *
-      10
+      max(this.scaleValues.y.map((value) => value.toString().length)) * 10
     let yOffset = 20
 
     this.margin = {
@@ -59,7 +61,7 @@ export class ChartBrewer {
     if (!this.scaleValues) {
       this.computeMargin('bottom', 'left')
     }
-    console.log(this.margin)
+
     x.scale = getScale(
       this.scaleValues.x,
       [this.margin.left, this.width - this.margin.right],
@@ -74,10 +76,6 @@ export class ChartBrewer {
     x.ticks = tickValues(x.scale, 'x', this.params)
     y.ticks = tickValues(y.scale, 'y', this.params)
 
-    // console.log('X Offset', this.xOffset)
-
-    // delete x.values
-    // delete y.values
     this.axis = { x, y, fill }
     return this
   }
@@ -102,8 +100,73 @@ export class ChartBrewer {
     return this
   }
 
-  summarize() {
-    return this
+  summary() {
+    const result = nest()
+      .key((d) => d[this.x])
+      .rollup((d) => {
+        let values = d.map((g) => g[this.y]).sort(ascending)
+        let q1 = quantile(values, 0.25)
+        let q3 = quantile(values, 0.75)
+        let median = quantile(values, 0.5)
+        let interQuantileRange = q3 - q1
+        let min = q1 - 1.5 * interQuantileRange
+        let max = q3 + 1.5 * interQuantileRange
+        return { q1, q3, median, interQuantileRange, min, max }
+      })
+      .entries(this.data)
+    return result
+  }
+
+  // assumes axis has been computes
+  violin() {
+    if (!this.axis) this.computeAxis()
+    // Features of the histogram
+    var histogramBins = histogram()
+      .domain(this.axis.y.scale.domain())
+      .thresholds(this.axis.y.scale.ticks(20)) // Important: how many bins approx are going to be made? It is the 'resolution' of the violin plot
+      .value((d) => d)
+
+    // Compute the binning for each group of the dataset
+    var sumstat = nest()
+      .key((d) => d[this.x])
+      .rollup((d) => histogramBins(d.map((g) => +g[this.y])))
+      .entries(this.data)
+
+    // console.log(sumstat)
+    // What is the biggest number of value in a bin? We need it cause this value will have a width of 100% of the bandwidth.
+    var maxNum = 0
+    for (let i in sumstat) {
+      let allBins = sumstat[i].value
+      let lengths = allBins.map((a) => a.length)
+      let longest = max(lengths)
+      if (longest > maxNum) {
+        maxNum = longest
+      }
+    }
+    // console.log(
+    //   maxNum,
+    //   this.axis.x.scale.bandwidth(),
+    //   this.axis.x.scale('setosa')
+    // )
+
+    // The maximum width of a violin must be x.bandwidth = the width dedicated to a group
+    var xNum = scaleLinear()
+      .range([0, this.axis.x.scale.bandwidth()])
+      .domain([0, maxNum])
+
+    let result = area()
+      .x0(xNum(0))
+      .x1(function (d) {
+        return xNum(d.length)
+      })
+      .y((d) => this.axis.y.scale(d.x0))
+      .curve(curveCatmullRom)
+
+    let areas = sumstat.map((d) => ({
+      curve: result(d.value),
+      x: this.axis.x.scale(d.key),
+    }))
+    return areas
   }
 }
 

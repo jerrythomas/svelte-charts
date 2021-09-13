@@ -1,7 +1,7 @@
 import Symbol from './chart/Symbol.svelte'
 import PatternDefs from './chart/PatternDefs.svelte'
 import Swatch from './chart/Swatch.svelte'
-export { toHexString, initCap } from './lib/utils'
+export { toHexString, initCap, uniqueId } from './lib/utils'
 import Chart from './chart/Chart.svelte'
 // import Axis from './chart/Axis.svelte'
 import Grid from './chart/Grid.svelte'

@@ -24,10 +24,7 @@
   $: k = orient === 'top' || orient === 'left' ? -1 : 1
   $: dy = orient === 'top' ? '0em' : orient === 'bottom' ? '0.71em' : '0.32em'
   $: vertical = orient === 'left' || orient === 'right'
-
   $: range = axis.scale.range()
-
-  //   $: tickSizeInner = +tickSizeInner
   $: axis = vertical ? chart.axis.y : chart.axis.x
 </script>
 

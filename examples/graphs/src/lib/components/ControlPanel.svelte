@@ -17,7 +17,7 @@
     {}
   )
   let swatches = {
-    symbols: { items: brewer().shape().brew(1), type: 'symbol' },
+    symbols: { items: brewer().shape().brew(), type: 'symbol' },
     colors: {
       items: [
         brewer().color().gray(),
@@ -27,7 +27,7 @@
       type: 'square',
     },
     patterns: {
-      items: brewer().pattern().brew(1),
+      items: brewer().pattern().brew(),
       type: 'square',
     },
   }
