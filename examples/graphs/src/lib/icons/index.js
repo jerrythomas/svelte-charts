@@ -8,6 +8,7 @@ import LabsIcon from './Labs.svelte'
 import PlotIcon from './Plot.svelte'
 import ThemeIcon from './Theme.svelte'
 import PatternIcon from './Pattern.svelte'
+import SymbolIcon from './Symbol.svelte'
 
 export const icons = {
   BookMark: BookMarkIcon,
@@ -20,4 +21,5 @@ export const icons = {
   Plot: PlotIcon,
   Theme: ThemeIcon,
   Pattern: PatternIcon,
+  Symbol: SymbolIcon,
 }

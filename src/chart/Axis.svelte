@@ -5,19 +5,15 @@
   let chart = getContext('chart')
 
   let top =
-    orient === 'bottom'
-      ? chart.params.height - chart.params.margin.bottom
-      : chart.params.margin.top
+    orient === 'bottom' ? chart.height - chart.margin.bottom : chart.margin.top
   let left =
-    orient === 'right'
-      ? chart.params.width - chart.params.margin.bottom
-      : chart.params.margin.left
+    orient === 'right' ? chart.width - chart.margin.right : chart.margin.left
   let tickSizeInner = chart.theme.tick.size.inner || 6
   let tickSizeOuter = chart.theme.tick.size.outer || 6
   let tickPadding = chart.theme.tick.size.padding || 3
 
   function axisPath(vertical, scale) {
-    console.log(k * tickSizeOuter, range[0], range[1])
+    // console.log(k * tickSizeOuter, range[0], range[1])
     return vertical
       ? `M${k * tickSizeOuter},${range[0]}H0V${range[1]}H${k * tickSizeOuter}`
       : `M${range[0]},${k * tickSizeOuter}V0H${range[1]}V${k * tickSizeOuter}`

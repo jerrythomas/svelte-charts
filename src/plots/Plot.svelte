@@ -1,5 +1,5 @@
 <script>
-  import { aggregate, getScales } from './helper'
+  import { aggregate, getScales } from '../lib/utils'
 
   import BoxPlot from './BoxPlot.svelte'
   import ScatterPlot from './ScatterPlot.svelte'

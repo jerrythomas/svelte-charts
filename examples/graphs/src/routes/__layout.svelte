@@ -18,6 +18,6 @@
 </script>
 
 <Sidebar {menu} {activePage} />
-<section class="w-full px-12 py-4 overflow-y-scroll">
+<section class="w-full overflow-y-scroll">
   <slot />
 </section>

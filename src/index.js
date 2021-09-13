@@ -1,7 +1,26 @@
-import PatternSet from './lib/PatternSet.svelte'
-import Symbol from './lib/Symbol.svelte'
-export { PatternSet, Symbol }
+import Symbol from './chart/Symbol.svelte'
+import PatternDefs from './chart/PatternDefs.svelte'
+import Swatch from './chart/Swatch.svelte'
+export { toHexString, initCap } from './lib/utils'
+import Chart from './chart/Chart.svelte'
+// import Axis from './chart/Axis.svelte'
+import Grid from './chart/Grid.svelte'
 
-export function add(a, b) {
-  return a + b
+// import Plot from './plots/Plot.svelte'
+// import BoxPlot from './plots/BoxPlot.svelte'
+// import ViolinPlot from './plots/ViolinPlot.svelte'
+// import ScatterPlot from './plots/ScatterPlot.svelte'
+
+export { brewer } from './lib'
+export {
+  Symbol,
+  PatternDefs,
+  Swatch,
+  Chart,
+  // Axis,
+  Grid,
+  // Plot,
+  // BoxPlot,
+  // ViolinPlot,
+  // ScatterPlot,
 }
