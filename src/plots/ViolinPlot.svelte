@@ -2,8 +2,8 @@
   import { getContext } from 'svelte'
 
   let chart = getContext('chart')
-  $: data = chart.violin()
-  $: console.log(data)
+  $: data = $chart.violin()
+  // $: console.log(data)
 </script>
 
 {#each data as { x, curve }, i}

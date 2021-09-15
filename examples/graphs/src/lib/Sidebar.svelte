@@ -3,7 +3,7 @@
 
   export let menu
   export let activePage
-  $: console.log('activepage', activePage)
+  // $: console.log('activepage', activePage)
 </script>
 
 <aside

@@ -40,7 +40,7 @@
 </script>
 
 <div class="flex flex-row h-full">
-  <content class="flex-grow p-8">
+  <content class="flex-grow px-8">
     <h1>Plots</h1>
     <div class="flex flex-col items-center p-4">
       <Chart {theme} {params} {fields} {data} />

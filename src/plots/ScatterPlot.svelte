@@ -3,7 +3,8 @@
   import Symbol from '../chart/Symbol.svelte'
   import { getContext } from 'svelte'
 
-  let chart = getContext('chart')
+  const chart = getContext('chart')
+
   export let size = 8
   export let fill = '#c0c0c0'
   export let stroke = '#3c3c3c'
@@ -12,14 +13,22 @@
 
   $: jitterWidth = clamp(jitterWidth, 0, 100 / 2)
   $: offset = clamp(offset | (jitterWidth / 2), 0, 100)
+  // $: chart = getContext('chart')
+  // $: data = chart.data
+  // $: console.log(chart)
+  // $: console.log($chart)
 </script>
 
-{#each chart.data as d}
-  <Symbol
-    x={chart.axis.x.scale(d[chart.x]) - offset + Math.random() * jitterWidth}
-    y={chart.axis.y.scale(d[chart.y])}
-    {fill}
-    {stroke}
-    {size}
-  />
-{/each}
+{#if $chart.data}
+  {#each $chart.data as d}
+    <Symbol
+      x={$chart.axis.x.scale(d[$chart.x]) -
+        offset +
+        Math.random() * jitterWidth}
+      y={$chart.axis.y.scale(d[$chart.y])}
+      {fill}
+      {stroke}
+      {size}
+    />
+  {/each}
+{/if}

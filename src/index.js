@@ -1,26 +1,31 @@
+export { toHexString, initCap, uniqueId } from './lib/utils'
+
 import Symbol from './chart/Symbol.svelte'
 import PatternDefs from './chart/PatternDefs.svelte'
 import Swatch from './chart/Swatch.svelte'
-export { toHexString, initCap, uniqueId } from './lib/utils'
-import Chart from './chart/Chart.svelte'
-// import Axis from './chart/Axis.svelte'
+
+import Axis from './chart/Axis.svelte'
 import Grid from './chart/Grid.svelte'
 
 // import Plot from './plots/Plot.svelte'
-// import BoxPlot from './plots/BoxPlot.svelte'
-// import ViolinPlot from './plots/ViolinPlot.svelte'
-// import ScatterPlot from './plots/ScatterPlot.svelte'
+import BoxPlot from './plots/BoxPlot.svelte'
+import ViolinPlot from './plots/ViolinPlot.svelte'
+import ScatterPlot from './plots/ScatterPlot.svelte'
 
-export { brewer } from './lib'
+import Chart from './chart/Chart.svelte'
+import TimelapseChart from './chart/TimelapseChart.svelte'
+
+export { brewer, uniques, slidingWindow } from './lib'
 export {
   Symbol,
   PatternDefs,
   Swatch,
-  Chart,
-  // Axis,
+  Axis,
   Grid,
   // Plot,
-  // BoxPlot,
-  // ViolinPlot,
-  // ScatterPlot,
+  BoxPlot,
+  ViolinPlot,
+  ScatterPlot,
+  Chart,
+  TimelapseChart,
 }

@@ -5,12 +5,14 @@
   let chart = getContext('chart')
 
   let top =
-    orient === 'bottom' ? chart.height - chart.margin.bottom : chart.margin.top
+    orient === 'bottom'
+      ? $chart.height - $chart.margin.bottom
+      : $chart.margin.top
   let left =
-    orient === 'right' ? chart.width - chart.margin.right : chart.margin.left
-  let tickSizeInner = chart.theme.tick.size.inner || 6
-  let tickSizeOuter = chart.theme.tick.size.outer || 6
-  let tickPadding = chart.theme.tick.size.padding || 3
+    orient === 'right' ? $chart.width - $chart.margin.right : $chart.margin.left
+  let tickSizeInner = $chart.theme.tick.size.inner || 6
+  let tickSizeOuter = $chart.theme.tick.size.outer || 6
+  let tickPadding = $chart.theme.tick.size.padding || 3
 
   function axisPath(vertical, scale) {
     // console.log(k * tickSizeOuter, range[0], range[1])
@@ -25,7 +27,7 @@
   $: dy = orient === 'top' ? '0em' : orient === 'bottom' ? '0.71em' : '0.32em'
   $: vertical = orient === 'left' || orient === 'right'
   $: range = axis.scale.range()
-  $: axis = vertical ? chart.axis.y : chart.axis.x
+  $: axis = vertical ? $chart.axis.y : $chart.axis.x
 </script>
 
 <g

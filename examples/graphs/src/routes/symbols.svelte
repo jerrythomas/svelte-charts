@@ -34,7 +34,7 @@
 </script>
 
 <div class="flex flex-row h-full">
-  <content class="flex-grow p-8">
+  <content class="flex-grow px-8">
     <h1>Symbols</h1>
     <svg viewBox="0 0 {width} {height}">
       {#each shapes as { shape }, index}

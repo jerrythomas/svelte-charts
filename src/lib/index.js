@@ -5,6 +5,7 @@ import { ThemeBrewer } from './theme'
 import { PatternBrewer } from './pattern'
 
 export { toHexString, swatch } from './utils'
+export { uniques, slidingWindow } from './rollup'
 
 export function brewer() {
   return {

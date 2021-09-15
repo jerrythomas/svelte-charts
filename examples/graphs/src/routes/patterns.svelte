@@ -30,7 +30,7 @@
 </script>
 
 <div class="flex flex-row h-full">
-  <content class="flex-grow p-8">
+  <content class="flex-grow px-8">
     <h1>Patterns</h1>
     <Swatch items={variations} type="circle" size={60} columns={7} autoscale />
   </content>

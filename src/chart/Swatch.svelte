@@ -42,7 +42,7 @@
   }
 
   function click(index) {
-    console.log('clicked')
+    // console.log('clicked')
     if (interactive) {
       activeIndex = start + index
       dispatch('click', { index: activeIndex, item: items[activeIndex] })

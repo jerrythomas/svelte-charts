@@ -10,7 +10,7 @@ const config = {
     adapter: adapter({
       pages: 'build',
       assets: 'build',
-      fallback: '404',
+      fallback: 'index.html',
     }),
     vite: {
       resolve: {
