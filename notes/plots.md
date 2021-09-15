@@ -1,0 +1,5 @@
+# Plots
+
+- BoxPlot
+- ViolinPlot
+- ScatterPlot

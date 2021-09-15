@@ -1,0 +1,12 @@
+@tailwind base;
+/* Write your global styles here, in PostCSS syntax */
+html,
+body,
+#svelte {
+  @apply flex w-full h-full overflow-hidden;
+}
+h1 {
+  @apply font-sans text-2xl border-b-2 border-accent-200 my-6;
+}
+@tailwind components;
+@tailwind utilities;
