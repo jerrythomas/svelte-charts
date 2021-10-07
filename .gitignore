@@ -6,3 +6,4 @@ coverage.lcov
 /build
 /.svelte-kit
 /package
+*workspace

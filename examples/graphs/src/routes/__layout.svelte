@@ -11,6 +11,7 @@
   import '@fontsource/montserrat-alternates'
   import '@fontsource/kalam'
   import '../app.postcss'
+  import '@jerrythomas/svelte-charts/chart.css'
   import Sidebar from '$lib/Sidebar.svelte'
   import { menu } from '$config'
 

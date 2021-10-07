@@ -18,7 +18,7 @@ This component library has been heavily inspired by the following works, and bor
 Get started quickly using [degit](https://github.com/Rich-Harris/degit).
 
 ```bash
-degit jerrythomas/charts/examples/graphs my-app
+degit jerrythomas/svelte-charts/examples/graphs my-app
 ```
 
 ## Features

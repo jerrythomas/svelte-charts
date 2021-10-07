@@ -1,24 +1,31 @@
 {
-	"name": "Graphs",
-	"version": "0.0.1",
+	"name": "graphs",
+	"version": "1.0.0-beta.0",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
-		"preview": "svelte-kit preview"
+		"preview": "svelte-kit preview",
+		"test:coverage": "c8 --include=src --all npm test",
+		"test": "NODE_OPTIONS='--experimental-loader @jerrythomas/svelte-esm-loader' uvu spec"
 	},
 	"devDependencies": {
+		"@jerrythomas/svelte-esm-utils": "^1.0.0-beta.1",
 		"@sveltejs/adapter-static": "^1.0.0-next.18",
 		"@sveltejs/kit": "next",
 		"autoprefixer": "^10.3.1",
+		"c8": "^7.9.0",
 		"cssnano": "^5.0.6",
 		"d3-array": "^3.0.2",
 		"d3-collection": "^1.0.7",
 		"d3-scale": "^4.0.0",
+		"jsdom": "^17.0.0",
 		"postcss": "^8.3.5",
 		"postcss-load-config": "^3.1.0",
+		"ramda": "^0.27.1",
 		"svelte": "^3.34.0",
 		"svelte-preprocess": "^4.7.4",
-		"tailwindcss": "^2.2.4"
+		"tailwindcss": "^2.2.4",
+		"uvu": "^0.5.1"
 	},
 	"type": "module",
 	"dependencies": {
