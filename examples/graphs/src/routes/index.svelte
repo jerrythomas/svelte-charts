@@ -7,10 +7,10 @@
 
   let theme = {
     grid: {
-      thickness: 0.2,
+      thickness: 2,
       stroke: 'currentColor',
-      opacity: '.5',
-      dasharray: '0',
+      opacity: 1,
+      dasharray: '1 3 1',
     },
     tick: {
       size: { inner: 6, outer: 6, padding: 3 },
@@ -25,7 +25,7 @@
 </script>
 
 <section class="flex flex-row h-full">
-  <content class="flex flex-col w-full px-8">
+  <content class="flex flex-col w-full px-8 natural-light">
     <h1>Home</h1>
     <TimelapseChart
       {data}

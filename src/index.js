@@ -1,31 +1,24 @@
-export { toHexString, initCap, uniqueId } from './lib/utils'
+export { default as ColorRamp } from './elements/ColorRamp.svelte'
 
-import Symbol from './chart/Symbol.svelte'
-import PatternDefs from './chart/PatternDefs.svelte'
-import Swatch from './chart/Swatch.svelte'
+export { default as Symbol } from './chart/Symbol.svelte'
+export { default as PatternDefs } from './chart/PatternDefs.svelte'
+export { default as Swatch } from './chart/Swatch.svelte'
+export { default as SwatchButton } from './chart/SwatchButton.svelte'
+export { default as SwatchGrid } from './chart/SwatchGrid.svelte'
 
-import Axis from './chart/Axis.svelte'
-import Grid from './chart/Grid.svelte'
+export { default as Axis } from './chart/Axis.svelte'
+export { default as Grid } from './chart/Grid.svelte'
 
-// import Plot from './plots/Plot.svelte'
-import BoxPlot from './plots/BoxPlot.svelte'
-import ViolinPlot from './plots/ViolinPlot.svelte'
-import ScatterPlot from './plots/ScatterPlot.svelte'
+// export Plot from './plots/Plot.svelte'
+export { default as BoxPlot } from './plots/BoxPlot.svelte'
+export { default as ViolinPlot } from './plots/ViolinPlot.svelte'
+export { default as ScatterPlot } from './plots/ScatterPlot.svelte'
+export { default as FunnelPlot } from './plots/FunnelPlot.svelte'
 
-import Chart from './chart/Chart.svelte'
-import TimelapseChart from './chart/TimelapseChart.svelte'
-
-export { brewer, uniques, slidingWindow } from './lib'
-export {
-  Symbol,
-  PatternDefs,
-  Swatch,
-  Axis,
-  Grid,
-  // Plot,
-  BoxPlot,
-  ViolinPlot,
-  ScatterPlot,
-  Chart,
-  TimelapseChart,
-}
+export { default as Chart } from './chart/Chart.svelte'
+export { default as TimelapseChart } from './chart/TimelapseChart.svelte'
+export { default as Timer } from './chart/Timer.svelte'
+export { default as BarPlot } from './plots/BarPlot.svelte'
+export { default as HeatMapCalendar } from './plots/HeatMapCalendar.svelte'
+export { toHexString, initCap, uniqueId, toNested } from './lib/utils'
+export { brewer, uniques, slidingWindow, colors } from './lib/index'

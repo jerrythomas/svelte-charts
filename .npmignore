@@ -1,0 +1,8 @@
+*.yaml
+*.json
+*.md
+.prettierignore
+.github/
+spec/
+examples/
+notes/

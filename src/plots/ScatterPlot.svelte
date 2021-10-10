@@ -13,10 +13,6 @@
 
   $: jitterWidth = clamp(jitterWidth, 0, 100 / 2)
   $: offset = clamp(offset | (jitterWidth / 2), 0, 100)
-  // $: chart = getContext('chart')
-  // $: data = chart.data
-  // $: console.log(chart)
-  // $: console.log($chart)
 </script>
 
 {#if $chart.data}
