@@ -16,16 +16,13 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "rollup -c",
-    "prepublishOnly": "npm run build",
     "lint": "eslint spec src",
-    "release": "npm run build && release-it --preRelease=beta",
+    "release": "release-it --preRelease=beta",
     "test": "NODE_OPTIONS='--experimental-loader @jerrythomas/svelte-esm-loader' uvu spec",
     "test:coverage": "c8 --include=src --all npm test"
   },
   "devDependencies": {
-    "@jerrythomas/svelte-esm-loader": "^1.0.0-beta.5",
-    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@jerrythomas/svelte-esm-loader": "^1.0.0-beta.2",
     "@types/d3-array": "^3.0.1",
     "@types/d3-collection": "^1.0.10",
     "@types/d3-scale": "^4.0.1",
@@ -39,15 +36,13 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-svelte3": "^3.2.1",
-    "jsdom": "16.3.0",
+    "jsdom": "^18.0.0",
     "prettier": "^2.4.1",
     "prettier-plugin-svelte": "^2.4.0",
     "ramda": "^0.27.1",
     "release-it": "^14.11.5",
-    "rollup": "^2.56.3",
-    "rollup-plugin-svelte": "^7.1.0",
     "svelte": "^3.42.6",
-    "svelte-facade": "^1.0.0-beta.5",
+    "svelte-facade": "^1.0.0-beta.4",
     "uvu": "^0.5.1",
     "yootils": "^0.3.1"
   },
