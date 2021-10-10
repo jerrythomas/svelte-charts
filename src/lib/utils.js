@@ -2,12 +2,12 @@ import { scaleBand, scaleLinear } from 'd3-scale'
 import { min, max } from 'd3-array'
 import { ascending, quantile } from 'd3-array'
 import { nest } from 'd3-collection'
-import * as R from 'ramda'
+import { omit, filter } from 'ramda'
 
 /**
  * Generates a unique id from current timestamp
  *
- * @returns timestamp based unique id
+ * @returns {String} timestamp based unique id
  */
 export function uniqueId(prefix = '') {
 	return prefix + Date.now().toString(36)
@@ -16,11 +16,21 @@ export function uniqueId(prefix = '') {
 /**
  * Capitalizes the first letter of input string
  *
- * @param {string} str
- * @returns
+ * @param {String} str
+ * @returns {String}
  */
 export function initCap(str) {
 	return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+/**
+ * Removes undefined and null values from the input object.
+ *
+ * @param {Object} obj
+ * @returns {Object}
+ */
+export function compact(obj) {
+	return filter((x) => x !== undefined && x !== null, obj)
 }
 
 /**
@@ -150,6 +160,6 @@ export function getPaletteForValues(values, { palette, fallback }) {
 export function toNested(data, key, label) {
 	return nest()
 		.key((d) => d[key])
-		.rollup((values) => values.map((value) => R.omit([key], value)))
+		.rollup((values) => values.map((value) => omit([key], value)))
 		.entries(data.sort((a, b) => ascending(a[label], b[label])))
 }

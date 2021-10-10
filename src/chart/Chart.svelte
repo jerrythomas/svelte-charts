@@ -1,30 +1,34 @@
 <script>
 	import { setContext } from 'svelte'
 	import { writable } from 'svelte/store'
-	import { brewer } from '../lib'
-
-	import Axis from './Axis.svelte'
-	import BoxPlot from '../plots/BoxPlot.svelte'
-	import ScatterPlot from '../plots/ScatterPlot.svelte'
-	import ViolinPlot from '../plots/ViolinPlot.svelte'
-
-	import Grid from './Grid.svelte'
+	import { compact } from '../lib/utils'
+	import { builtIn } from '../lib/theme'
 
 	let chart = writable({})
+
 	setContext('chart', chart)
 
-	export let data // current data
-	export let fields // x, y and fill attributes
-	export let theme // patterns, colors, symbols, ticks
-	export let inverse = false
-	// export let params // show/hide axis, show/hide labels, padding
+	export let width = 800
+	export let height = 450
+	export let data
+	export let theme = builtIn
+	export let x
+	export let y
+	export let fill
+	export let color
+	export let curve = 'basis'
+	export let stat = 'identity'
 
-	$: $chart = brewer()
-		.chart(data, fields.x, fields.y)
-		.computeAxis(0, inverse)
-		.use(theme)
+	$: aes = compact({ x, y, fill, color, stat, curve })
+	$: chart.set({
+		width,
+		height,
+		data,
+		theme,
+		aes,
+	})
 </script>
 
-<svg viewBox="0 0 {$chart.width} {$chart.height}" class="chart" width="100%">
+<svg viewBox="0 0 {width} {height}" class="chart" width="100%">
 	<slot />
 </svg>

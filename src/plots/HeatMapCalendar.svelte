@@ -4,6 +4,7 @@
 	import { scaleLinear } from 'd3-scale'
 	import ContinuousLegend from './ContinuousLegend.svelte'
 	import DiscreteLegend from './DiscreteLegend.svelte'
+	import ColorRamp from '../elements/ColorRamp.svelte'
 
 	const dayLabelWidth = 20
 	const labelHeight = 6
@@ -12,13 +13,13 @@
 	export let dateField = 'date'
 	export let valueField = null
 	export let months = 12
-	export let colors = ['#ffffff', '#FB8C00']
+	export let colors = [transparent, '#FB8C00']
 	export let padding = 8
 	export let space = 2
 	export let size = 10
 	export let maximum = 10
 	export let tickCount = 5
-	export let discreteLegend = true
+	export let discreteLegend = false
 
 	export let tooltipText = (d) => `${d.date} => ${d.value}`
 
@@ -64,12 +65,13 @@
 				{tickCount}
 			/>
 		{:else}
-			<ContinuousLegend
+			<ColorRamp {scale} x={width - 100 - padding} y={padding} {tickCount} />
+			<!-- <ContinuousLegend
 				{scale}
 				x={width - 100 - padding}
 				y={padding}
 				{tickCount}
-			/>
+			/> -->
 		{/if}
 		{#each datamap.weekdays as name, i}
 			<text

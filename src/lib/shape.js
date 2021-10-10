@@ -67,7 +67,7 @@ export const namedShapes = {
 		`L${0.5 * s} ${s}`,
 }
 
-const builtIn = [
+export const builtIn = [
 	...Object.keys(namedShapes).map((key) => ({ shape: namedShapes[key] })),
 	{
 		shape: (s) =>

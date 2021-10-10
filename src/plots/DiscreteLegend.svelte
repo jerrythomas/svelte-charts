@@ -30,7 +30,7 @@
 {/each}
 
 <style>
-	line {
+	rect {
 		stroke: currentColor;
 		stroke-width: 0.2;
 	}

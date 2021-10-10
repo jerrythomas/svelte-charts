@@ -2,7 +2,7 @@ import { clamp } from 'yootils'
 import { ColorBrewer } from './color'
 import { toHexString, uniqueId } from './utils'
 
-const builtIn = [
+export const builtIn = [
 	{ path: 'M0 5A6 6 0 0 0 10 5', minAngle: 0, maxAngle: 90 },
 	{ path: 'M0 10L10 0', minAngle: 0, maxAngle: 90 },
 	{ path: 'M0 0A10 10 0 0 0 10 10', minAngle: 0, maxAngle: 90 },
