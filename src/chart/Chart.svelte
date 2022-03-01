@@ -16,10 +16,11 @@
 	export let y
 	export let fill
 	export let color
+	export let padding = 20
 	export let curve = 'basis'
 	export let stat = 'identity'
 
-	$: aes = compact({ x, y, fill, color, stat, curve })
+	$: aes = compact({ x, y, fill, color, stat, curve, padding })
 	$: chart.set({
 		width,
 		height,

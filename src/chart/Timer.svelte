@@ -20,14 +20,8 @@
 	}
 </script>
 
-<div class="flex flex-row gap-2 {$$props.class}">
-	<button on:click={() => (isEnabled = true)}>play</button>
-	<button on:click={() => (isEnabled = false)}>pause</button>
-	<button on:click={onReset}>reset</button>
+<div class="flex flex-row gap-2 timer">
+	<button on:click|preventDefault={() => (isEnabled = true)}>play</button>
+	<button on:click|preventDefault={() => (isEnabled = false)}>pause</button>
+	<button on:click|preventDefault={onReset}>reset</button>
 </div>
-
-<style lang="postcss">
-	button {
-		@apply bg-primary-200 border border-primary-400 rounded-sm px-4 leading-loose shadow-md hover:bg-primary-400;
-	}
-</style>
