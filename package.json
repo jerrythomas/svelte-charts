@@ -1,6 +1,6 @@
 {
   "name": "@jerrythomas/svelte-charts",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "Themable d3 charts for svelte applications",
   "private": false,
   "svelte": "src/index.js",
